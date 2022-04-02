@@ -14,10 +14,10 @@ pipeline {
     
     environment {
         ORG_NAME = "team3"
-        APP_NAME = "team3-trainer"
+        APP_NAME = "team3-employee"
         APP_VERSION = "1.0-SNAPSHOT"
         APP_CONTEXT_ROOT = "/"
-        APP_LISTENING_PORT = "8100"
+        APP_LISTENING_PORT = "8200"
         TEST_CONTAINER_NAME = "ci-${APP_NAME}-${BUILD_NUMBER}"
         PREV_CONTAINER_NAME="ci-${APP_NAME}-${currentBuild.previousBuild.number}"
     }
@@ -50,14 +50,14 @@ pipeline {
         steps {
 
             echo "====== killing Containers====="
-            echo "Current Container: trainer-server"
-            echo "Previous Container trainer-server"
+            echo "Current Container: employee-server"
+            echo "Previous Container employee-server"
             script {
                 try {
-                    bat "docker rm trainer-server"
+                    bat "docker rm employee-server"
                 }catch(Exception e) {
                     echo e.getMessage() 
-                    echo "Container not found trainer-server"
+                    echo "Container not found employee-server"
                 }
             }
         }
@@ -76,7 +76,7 @@ pipeline {
             steps {
                 echo "-=- run Docker image -=-"
                 echo "Executing  ${VERSION}"
-                bat "docker run --name=trainer-server --detach --restart=always --network team3-network -p 8100:8100 ${ORG_NAME}/${APP_NAME}:latest"
+                bat "docker run --name=employee-server --detach --restart=always --network team3-network -p 8200:8200 ${ORG_NAME}/${APP_NAME}:latest"
             }
         }
 

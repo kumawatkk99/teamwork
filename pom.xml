@@ -8,26 +8,27 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.team3</groupId>
-	<artifactId>t3-trainer-service</artifactId>
+	<artifactId>t3-employee-services</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Trainer Service</name>
-	<description>Team-3 Trainer Services</description>
+	<name>Employee Services</name>
+	<description>Team 3 </description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.1</spring-cloud.version>
-
+		
 		<sonar.java.binaries>target/classes</sonar.java.binaries>
-		<sonar.login>e9b2f95735dc188cdfb54db6df4b77ce21f60d1c</sonar.login>
+		<sonar.login>c195b48b6f208081843630a1bb4021e9239329b6</sonar.login>
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
-		<sonar.projectKey>trainer-service</sonar.projectKey>
+		
+		<sonar.projectKey>employee-service</sonar.projectKey>
 		<sonar.exclusions>
-		src/main/java/com/team3/trainer/*.java,
-		src/main/java/com/team3/trainer/exception/*.java,
-		src/main/java/com/team3/trainer/controller/*.java,
-		src/main/java/com/team3/trainer/beans/*.java,
-		src/main/java/com/team3/trainer/config/*.java,
-		src/main/java/com/team3/trainer/repo/*.java,
-		src/main/java/com/team3/trainer/utils/*.java
+		src/main/java/com/team3/employee/*.java,
+		src/main/java/com/team3/employee/exception/*.java,
+		src/main/java/com/team3/employee/controller/*.java,
+		src/main/java/com/team3/employee/beans/*.java,
+		src/main/java/com/team3/employee/config/*.java,
+		src/main/java/com/team3/employee/repo/*.java,
+
 		</sonar.exclusions>
 		<sonar.tests>src/test</sonar.tests>
 		<sonar.language>java</sonar.language>
@@ -38,12 +39,13 @@
 		<sonar.sources>src/main</sonar.sources>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>
-
+		
+		
 	</properties>
-
 	<dependencies>
 
-		<dependency>
+	
+<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>chaos-monkey-spring-boot</artifactId>
 			<version>2.0.0</version>
@@ -131,7 +133,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -201,7 +202,7 @@
 			</plugin>
 
 		</plugins>
-		<finalName>trainer-server</finalName>
+		<finalName>employee-server</finalName>
 	</build>
 
 	<reporting>

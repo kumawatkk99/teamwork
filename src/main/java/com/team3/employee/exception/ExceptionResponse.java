@@ -1,4 +1,4 @@
-package com.team3.trainer.exception;
+package com.team3.employee.exception;
 
 import java.util.Date;
 
@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
  * @author Satyaa
  * @see Exception Response bean file
  * @since February, 2022
- *
  */
 @Data
 @NoArgsConstructor

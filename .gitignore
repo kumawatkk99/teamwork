@@ -75,4 +75,3 @@ tmp/
 local.properties
 .loadpath
 .factorypath
-/.apt_generated_tests/

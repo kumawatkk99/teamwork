@@ -1,4 +1,4 @@
-package com.team3.trainer.exception;
+package com.team3.employee.exception;
 
 import java.util.Date;
 
@@ -23,8 +23,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestController
 public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
-	@ExceptionHandler(TrainerNotFoundException.class)
+	@ExceptionHandler(EmployeeNotFoundException.class)
 	public ResponseEntity<Object> userNotFoundException(Exception exception, WebRequest request) {
+		exception.printStackTrace();
 		var response = new ExceptionResponse();
 		response.setMessage(exception.toString());
 		response.setDetails(request.getDescription(false));
@@ -32,9 +33,10 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 
 		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
 	}
-
+	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<Object> handelAllException(Exception exception, WebRequest request) {
+		exception.printStackTrace();
 		var response = new ExceptionResponse();
 		response.setMessage(exception.getMessage());
 		response.setDetails(request.getDescription(false));
@@ -47,6 +49,7 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 
+		ex.printStackTrace();
 		var response = new ExceptionResponse();
 		response.setMessage(ex.getMessage());
 		response.setDetails(request.getDescription(false));
@@ -54,34 +57,5 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 
 		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	}
-
-	@ExceptionHandler(ExperienceNotFoundException.class)
-	public ResponseEntity<Object> experienceNotFoundException(Exception exception, WebRequest request) {
-		var response = new ExceptionResponse();
-		response.setMessage(exception.toString());
-		response.setDetails(request.getDescription(false));
-		response.setDate(new Date());
-
-		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-	}
-
-	@ExceptionHandler(TocNotFoundException.class)
-	public ResponseEntity<Object> tocNotFoundException(Exception exception, WebRequest request) {
-		var response = new ExceptionResponse();
-		response.setMessage(exception.toString());
-		response.setDetails(request.getDescription(false));
-		response.setDate(new Date());
-
-		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-	}
-
-	@ExceptionHandler(QualificationNotFoundException.class)
-	public ResponseEntity<Object> qualificationNotFoundException(Exception exception, WebRequest request) {
-		var response = new ExceptionResponse();
-		response.setMessage(exception.toString());
-		response.setDetails(request.getDescription(false));
-		response.setDate(new Date());
-
-		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-	}
+	
 }

@@ -1,4 +1,4 @@
 FROM openjdk:11
-ADD target/trainer-server.jar trainer.jar
-EXPOSE 8100
-ENTRYPOINT [ "java", "-jar", "trainer.jar" ]
+ADD target/employee-server.jar employee.jar
+EXPOSE 8200
+ENTRYPOINT [ "java", "-jar", "employee.jar" ]

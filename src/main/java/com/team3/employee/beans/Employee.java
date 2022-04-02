@@ -1,27 +1,23 @@
-package com.team3.trainer.beans;
-
-import java.util.List;
+package com.team3.employee.beans;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Satyaa
  * @since February, 2022
- * @see Trainer Beans
+ * @see Employee Beans
  */
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
-public class Trainer {
+public class Employee {
 
 	private Integer id;
+
 	private String name;
 	private String password;
 	private String email;
 	private long phone;
-
-	private List<Qualification> qualificationList;
-	private List<Toc> toc;
-	private List<Experience> experienceList;
-
 }
